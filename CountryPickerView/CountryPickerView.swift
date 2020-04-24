@@ -37,6 +37,7 @@ public func !=(lhs: Country, rhs: Country) -> Bool {
 
 public class CountryPickerView: NibView {
     @IBOutlet weak var spacingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var flagHeightConstraint: NSLayoutConstraint!
     @IBOutlet public weak var flagImageView: UIImageView! {
         didSet {
             flagImageView.clipsToBounds = true
@@ -82,6 +83,15 @@ public class CountryPickerView: NibView {
         didSet { setup() }
     }
     
+    /// The height of the flag image.
+    public var flagHeightInView: CGFloat {
+        get {
+            return flagHeightConstraint.constant
+        }
+        set {
+            flagHeightConstraint.constant = newValue
+        }
+    }
     /// The spacing between the flag image and the text.
     public var flagSpacingInView: CGFloat {
         get {
